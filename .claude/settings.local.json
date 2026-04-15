@@ -12,7 +12,22 @@
       "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY0ZWUyMWQ5MmU4MmIwNGVhYWMwOWQ4MTdkZDQzEgsSBxDnqLX0lg8YAZIBIwoKcHJvamVjdF9pZBIVQhM2Mzc4MzgxNzE4ODg2MjAzMDU4&filename=&opi=89354086\" -o \"C:/Users/ADMIN/home_screen.html\")",
       "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY0ZWUyMjA3M2NiNTkwMDMwM2U1NGVlMjc5MjE5EgsSBxDnqLX0lg8YAZIBIwoKcHJvamVjdF9pZBIVQhM2Mzc4MzgxNzE4ODg2MjAzMDU4&filename=&opi=89354086\" -o \"C:/Users/ADMIN/findus_screen.html\")",
       "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command ' *)",
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "mcp__stitch__get_screen",
+      "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY0ZWUyMWQ5MmU4MmIwNGVhYWMwOWQ4MTdkZDQzEgsSBxDnqLX0lg8YAZIBIwoKcHJvamVjdF9pZBIVQhM2Mzc4MzgxNzE4ODg2MjAzMDU4&filename=&opi=89354086\" -o \"C:/Users/ADMIN/stitch_home.html\")",
+      "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY0ZWU5N2Y5MDI3NTIwOTM0ZjMwYTFlMWFlODM4EgsSBxDnqLX0lg8YAZIBIwoKcHJvamVjdF9pZBIVQhM2Mzc4MzgxNzE4ODg2MjAzMDU4&filename=&opi=89354086\" -o \"C:/Users/ADMIN/stitch_menu.html\")",
+      "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY0ZWUyMjBlZWU4NTkwNWMyZmY3ZjUwMDFiNmVmEgsSBxDnqLX0lg8YAZIBIwoKcHJvamVjdF9pZBIVQhM2Mzc4MzgxNzE4ODg2MjAzMDU4&filename=&opi=89354086\" -o \"C:/Users/ADMIN/stitch_booking.html\")",
+      "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY0ZWUyMWY2NWE1MTYwMWE2Mjk0NTdiMGI5M2RjEgsSBxDnqLX0lg8YAZIBIwoKcHJvamVjdF9pZBIVQhM2Mzc4MzgxNzE4ODg2MjAzMDU4&filename=&opi=89354086\" -o \"C:/Users/ADMIN/stitch_gallery.html\")",
+      "Bash(curl -sL \"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY0ZWUyMjAwNWVjNTYwNDMxMTZiNzgyMjA5MTIxEgsSBxDnqLX0lg8YAZIBIwoKcHJvamVjdF9pZBIVQhM2Mzc4MzgxNzE4ODg2MjAzMDU4&filename=&opi=89354086\" -o \"C:/Users/ADMIN/stitch_story.html\")",
+      "Bash(findstr /c:\"Most I like\")",
+      "Bash(grep -oP '\\(?<=>\\)[A-Za-z0-9À-ÿ,.:!?/\\(\\)\\\\- ]{4,80}\\(?=<\\)')",
+      "Bash(grep -v '^\\\\s*$')",
+      "Bash(grep -oP '\\(?<=>\\)[A-Za-z0-9À-ÿĐđ,.:!?/\\(\\)\\\\-\\\\+ ]{4,100}\\(?=<\\)')",
+      "Bash(grep -oP '\\(?<=>\\)[A-Za-z0-9À-ÿĐđ,.:!?/\\(\\)\\\\-\\\\+ ]{4,120}\\(?=<\\)')",
+      "Bash(npx tsc *)"
     ]
   }
 }
