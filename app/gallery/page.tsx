@@ -6,7 +6,7 @@ import GalleryGridSection from "@/components/sections/gallery/GalleryGridSection
 
 export default function GalleryPage() {
   return (
-    <main>
+    <main className="w-full overflow-hidden">
       <GalleryHeroSection />
       <GalleryGridSection />
       <GalleryCTASection />

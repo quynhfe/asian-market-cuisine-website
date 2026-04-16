@@ -9,12 +9,12 @@ import VisitUsSection from "@/components/sections/home/VisitUsSection";
 
 export default function Home() {
   return (
-    <>
+    <main className="w-full overflow-hidden">
       <HeroSection />
       <FeaturedDishesSection />
       <ChefTeaserSection />
       <ReviewsSection />
       <VisitUsSection />
-    </>
+    </main>
   );
 }

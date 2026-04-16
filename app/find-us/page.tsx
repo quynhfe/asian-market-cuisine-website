@@ -11,7 +11,7 @@ import {
 
 export default function FindUsPage() {
   return (
-    <main className="pt-32 md:pt-40 pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+    <main className="pt-20 md:pt-28 lg:pt-36 pb-16 md:pb-24 px-4 md:px-8 lg:px-12 w-full overflow-hidden">
       <FindUsHeroSection />
       <FindUsBentoSection />
       <FindUsDigitalPortalSection />

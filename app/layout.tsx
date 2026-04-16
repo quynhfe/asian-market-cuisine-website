@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Newsreader, DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -32,13 +32,18 @@ export const metadata: Metadata = {
   description: "Dinner is a Safe Choice. A contemporary dialogue between tradition and the street markets of Southeast Asia.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light scroll-smooth">
+    <html lang="en" className="light scroll-smooth" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -46,11 +51,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${newsreader.variable} ${dmSans.variable} ${plusJakartaSans.variable} bg-background text-on-surface font-body selection:bg-primary-container selection:text-white overflow-x-hidden`}
+        className={`${newsreader.variable} ${dmSans.variable} ${plusJakartaSans.variable} bg-background text-on-surface font-body selection:bg-primary-container selection:text-white overflow-x-hidden flex flex-col min-h-screen`}
       >
-        <div className="fixed inset-0 z-[100] grain-overlay"></div>
+        <div className="fixed inset-0 z-100 grain-overlay font-body"></div>
         <Navbar />
-        {children}
+        <main className="grow">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

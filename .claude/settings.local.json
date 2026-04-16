@@ -27,7 +27,15 @@
       "Bash(grep -v '^\\\\s*$')",
       "Bash(grep -oP '\\(?<=>\\)[A-Za-z0-9À-ÿĐđ,.:!?/\\(\\)\\\\-\\\\+ ]{4,100}\\(?=<\\)')",
       "Bash(grep -oP '\\(?<=>\\)[A-Za-z0-9À-ÿĐđ,.:!?/\\(\\)\\\\-\\\\+ ]{4,120}\\(?=<\\)')",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(cat tailwind.config.ts)",
+      "Bash(cat tailwind.config.js)",
+      "Bash(ls src/styles/globals.css)",
+      "Bash(ls styles/globals.css)",
+      "Bash(ls app/globals.css)",
+      "Bash(npx next *)",
+      "Bash(python3 D:/ojt_tekmium/asian-market-cuisine/.claude/skills/ui-ux-pro-max/scripts/search.py \"restaurant food cuisine elegant warm\" --design-system -p \"Asian Market Cuisine\")",
+      "Bash(python3 D:/ojt_tekmium/asian-market-cuisine/.claude/skills/ui-ux-pro-max/scripts/search.py \"layout responsive grid spacing\" --stack nextjs)"
     ]
   }
 }

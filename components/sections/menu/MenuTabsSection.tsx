@@ -2,7 +2,9 @@
 
 // ── Menu: Interactive Tabs + Content ──────────────────────────────────────────
 import { useState } from "react";
+import Image from "next/image";
 import { MENU_TABS } from "@/constants/data";
+import { IMAGES } from "@/lib/images";
 
 export default function MenuTabsSection() {
   const [activeTab, setActiveTab] = useState("starters");
@@ -21,16 +23,15 @@ export default function MenuTabsSection() {
   return (
     <>
       {/* Sticky Tabs Navigation */}
-      <div className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-sm py-4 md:py-6 border-b border-outline-variant/10">
-        <div className="max-w-screen-xl mx-auto px-4 md:px-6 overflow-x-auto no-scrollbar">
+      <div className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-sm py-4 md:py-6 border-b border-outline-variant/10 w-full">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-6 overflow-x-auto scrollbar-hide">
           <div className="flex items-center justify-start md:justify-center gap-2 md:gap-4 min-w-max pb-2">
             {MENU_TABS.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => switchTab(tab.id)}
-                className={`tab-btn px-4 md:px-6 py-2 rounded-full font-label uppercase tracking-[0.1em] text-[10px] md:text-[11px] transition-all ${
-                  activeTab === tab.id ? "bg-[#3046A7] text-[#fef9f1]" : "text-on-background/50 hover:bg-surface-container"
-                }`}
+                className={`tab-btn px-4 md:px-6 py-2 rounded-full font-label uppercase tracking-widest text-[11px] md:text-[11px] transition-all ${activeTab === tab.id ? "bg-primary text-[#fef9f1]" : "text-on-background/50 hover:bg-surface-container"
+                  }`}
               >
                 {tab.label}
               </button>
@@ -40,9 +41,9 @@ export default function MenuTabsSection() {
       </div>
 
       {/* Main Content Canvas */}
-      <main className="max-w-screen-xl mx-auto px-4 md:px-6 pb-20 md:pb-32 mt-8 md:mt-12" id="tab-content-area">
+      <main className="max-w-screen-2xl mx-auto px-4 md:px-6 pb-20 md:pb-32 mt-8 md:mt-12" id="tab-content-area">
         <div className="mb-8 md:mb-12 text-center">
-          <p className="font-label uppercase tracking-[0.2em] text-[9px] md:text-[10px] text-on-background/40">
+          <p className="font-label uppercase tracking-[0.2em] text-[9px] md:text-[11px] text-on-background/40">
             All prices are quoted in '000 Vietnam Dong
           </p>
         </div>
@@ -57,26 +58,26 @@ export default function MenuTabsSection() {
               </div>
               <div className="text-right shrink-0"><span className="font-label text-xl md:text-2xl border-b border-outline-variant/30 pb-1">82</span></div>
             </div>
-            <div className="mt-8 md:mt-12 -mb-10 -mr-6 md:-mr-10 self-end w-full md:w-2/3 transition-transform duration-700 group-hover:-translate-y-4">
-              <img alt="vibrant papaya salad" className="arch-image w-full shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDemthe7Y3JPhvCf4XlvvwglNfU_Yhzn0gZL2wPfmDo-2iO7e0KDbDsCkGsywnELtLHR4AiTKbd8TEw4Er5EvLgl3DYAwTzY2PvDiasqaINFH2jCOHjXCWhtv_67EZRaIs4WjWMMxmDZKFj94Mmn3P8P7xllRu5bIRo7ySSu38L3Hw4AuLk2a1uDlP3yriwXYVVas4hCbC_blXkZAL73wpDKl9V4X_xLaWqFJ1hz5A_Aw0tu9ZMV6N_sRFDSyBmJ_J3YKvCJfmhm3g" />
+            <div className="mt-8 md:mt-12 -mb-10 -mr-6 md:-mr-10 self-end w-full md:w-2/3 transition-transform duration-700 group-hover:-translate-y-4 rounded-tl-[200px] overflow-hidden">
+              <Image alt="vibrant papaya salad" className="arch-image w-full shadow-2xl" src={IMAGES.thaiGreenPapaya} />
             </div>
           </div>
           <div className="flex flex-col gap-6 md:col-span-12 lg:col-span-5 md:grid md:grid-cols-2 lg:flex lg:flex-col lg:gap-6">
             <div className="bg-surface-container-low rounded-lg p-6 md:p-8 flex-1 flex flex-col justify-between">
               <div className="flex justify-between items-start gap-4">
                 <div className="flex-1"><h4 className="font-headline italic text-xl md:text-2xl mb-2">Miso Soup</h4><p className="text-on-background/60 text-xs md:text-sm">Rich dashi broth with silken tofu, wakame, and scallions.</p></div>
-                <span className="font-label text-base md:text-lg flex-shrink-0 text-secondary">45</span>
+                <span className="font-label text-base md:text-lg shrink-0 text-secondary">45</span>
               </div>
             </div>
             <div className="bg-primary text-white rounded-lg p-6 md:p-8 flex-1 flex flex-col justify-between">
               <div className="flex justify-between items-start gap-4">
                 <div className="flex-1"><h4 className="font-headline italic text-xl md:text-2xl mb-2">Tom Yum Goong</h4><p className="text-white/80 text-xs md:text-sm">Spicy and sour lemongrass broth with mushrooms and tiger prawns.</p></div>
-                <span className="font-label text-base md:text-lg flex-shrink-0 text-primary-fixed">92</span>
+                <span className="font-label text-base md:text-lg shrink-0 text-primary-fixed">92</span>
               </div>
             </div>
           </div>
           <div className="col-span-full bg-surface-container-low rounded-lg p-6 md:p-10 mt-6">
-            <h4 className="font-label uppercase tracking-[0.1em] text-[10px] md:text-xs mb-6 md:mb-8 text-secondary">Salad Selections</h4>
+            <h4 className="font-label uppercase tracking-widest text-[11px] md:text-xs mb-6 md:mb-8 text-secondary">Salad Selections</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
               {[
                 { name: "Mixed salad with sesame dressing", desc: "Lettuce, cucumber, tomato, sweet corn, bell pepper", price: "52" },
@@ -94,11 +95,11 @@ export default function MenuTabsSection() {
 
         {/* Deep-Fried */}
         <div className={`tab-content ${activeTab === "deep-fried" ? "grid" : "hidden"} grid-cols-1 md:grid-cols-12 gap-8 items-start md:items-center`} id="tab-deep-fried">
-          <div className="md:col-span-4 lg:col-span-5">
-            <img alt="crispy golden deep fried spring rolls" className="arch-image w-full h-[300px] md:h-[600px] object-cover shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfGYCdLHkaLZBos3Afui3woAfVIAjUgJP5au-rpen5eFDvQ1nhJU7ZLOV-aO7BSUWvextcRmI7zuf746afIb55L6mZPR02jAgem2sQc2uiCVA0NhJfl_GTBX7vWO89x6GfbzHHJdVXo6eSgdfaPazqpL5kIm1_SbkQNauIv8rPPRSHT6APzy-tXfzMt8RvzF_8o9GHgp7QsOKKiJf-O4qEj-UZTzbSoBqj3UyIEq_soS7bb3UDPce8I5PlsxdUT6-vKxti3vUF6Vw" />
+          <div className="md:col-span-4 lg:col-span-5 relative rounded-t-[80px] sm:rounded-t-[150px] md:rounded-t-[250px] overflow-hidden h-[280px] sm:h-[350px] md:h-[600px]">
+            <Image fill alt="crispy golden deep fried spring rolls" className="arch-image object-cover shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfGYCdLHkaLZBos3Afui3woAfVIAjUgJP5au-rpen5eFDvQ1nhJU7ZLOV-aO7BSUWvextcRmI7zuf746afIb55L6mZPR02jAgem2sQc2uiCVA0NhJfl_GTBX7vWO89x6GfbzHHJdVXo6eSgdfaPazqpL5kIm1_SbkQNauIv8rPPRSHT6APzy-tXfzMt8RvzF_8o9GHgp7QsOKKiJf-O4qEj-UZTzbSoBqj3UyIEq_soS7bb3UDPce8I5PlsxdUT6-vKxti3vUF6Vw" />
           </div>
           <div className="md:col-span-8 md:pl-12 lg:col-span-7">
-            <p className="font-label uppercase tracking-[0.2em] text-secondary text-[10px] md:text-xs mb-6">Golden Crispy Delights</p>
+            <p className="font-label uppercase tracking-[0.2em] text-secondary text-[11px] md:text-xs mb-6">Golden Crispy Delights</p>
             <div className="space-y-6 md:space-y-10">
               {[
                 { name: "Fried pork spring rolls (5 pcs)", desc: "Pork, carrot, taro, vermicelli, ear mushroom", price: "59" },
@@ -118,13 +119,13 @@ export default function MenuTabsSection() {
         {/* Bao Buns */}
         <div className={`tab-content ${activeTab === "bao-buns" ? "grid" : "hidden"} grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`} id="tab-bao-buns">
           <div className="md:col-span-2 bg-surface-container-low rounded-lg p-6 md:p-12 flex flex-col justify-between relative overflow-hidden h-full min-h-[350px] md:min-h-[500px]">
-            <div className="z-10 w-full md:w-3/5">
-              <span className="font-label uppercase text-[9px] md:text-[10px] text-primary px-3 py-1 bg-primary-fixed rounded-full inline-block mb-4 md:mb-6">Signature Selection</span>
+            <div className="z-10 w-full md:w-2/5">
+              <span className="font-label uppercase text-[9px] md:text-[11px] text-primary px-3 py-1 bg-primary-fixed rounded-full inline-block mb-4 md:mb-6">Signature Selection</span>
               <div className="flex justify-between items-start mb-4"><h3 className="font-headline italic text-3xl md:text-5xl">Grilled chicken</h3><span className="font-label text-2xl md:text-3xl text-secondary">92</span></div>
               <p className="text-on-background/70 text-sm md:text-base mb-8 leading-relaxed max-w-sm">Lemongrass marinated chicken, pickled carrots, and spicy mayo inside a cloud-like steamed bun.</p>
             </div>
-            <div className="absolute -right-8 -bottom-8 md:-right-12 md:-bottom-12 w-2/3 rotate-3 transform transition-transform hover:rotate-0 duration-700 pointer-events-none opacity-40 md:opacity-100">
-              <img alt="steamed bao bun with grilled chicken" className="arch-image shadow-2xl w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIxItcuNI9bZgGsuDKIIcFZQBTsNmXQnxzeN0Xr7QTyFsSyJmHikGkLwvB71MXsPt8ucT372KLLC_tWfJZqvl0GdXHkoyVnF5uy5fwZGBTlYOPO4RqD18aJlh55khNVW9TgKOhO1hW9WNb4_GECF7Bq1TEV4MljCQEySvldXpF6pC_HyODdqSGXRVRkqyHsywWIuqFbzzZw6U4IPEWd7Y69vdWXEsUiSeR8vS9uAuNYugDYC2EKVLxpc-9TQK_wcugLVk7AAr8MmU" />
+            <div className="absolute -right-8 -bottom-8 md:-right-12 md:-bottom-12 w-3/5 rotate-3 transform transition-transform hover:rotate-0 duration-700 pointer-events-none opacity-40 md:opacity-100">
+              <Image alt="steamed bao bun with grilled chicken" className="arch-image shadow-2xl w-full" src={IMAGES.artisanBaoBunsHome} />
             </div>
           </div>
           <div className="flex flex-col gap-6">
@@ -133,7 +134,7 @@ export default function MenuTabsSection() {
               { name: "Pulled pork", price: "99", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDFi6QOPl4g8IU6Apcaq_Cow-MrId9EwJ34byEoK3_ZRNUkZ4EUsxZHuGUsHHbOZDxx4Y5Ql0Hly3-0qU6bIp1oKRtnCLe-Zt8lrbIl2kvZhybyfOYIuBWANVx9bg9yECsICPYIaHyMmeB6MvZcV7diVAGFbhCjRKCQB4Vb14uPliJ9kavpon-JA3o84svCQ4KSQ9S6GUU1jlxxrVVeSNIGQHNMgIbj74IRYvm7BSssTdproj9jMRVRs4W1vgklgRs59uDZTHSy2Ys" },
             ].map(({ name, price, src }) => (
               <div key={name} className="relative group rounded-lg overflow-hidden flex-1 min-h-[200px]">
-                <img alt={name} className="w-full h-full object-cover transition-scale duration-500 group-hover:scale-110" src={src} />
+                <Image fill alt={name} className="object-cover transition-transform duration-500 group-hover:scale-110" src={src} />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-end p-6">
                   <div className="flex justify-between items-end w-full">
                     <span className="text-white font-headline italic text-xl md:text-2xl">{name}</span>
@@ -164,7 +165,7 @@ export default function MenuTabsSection() {
               <div><h3 className="font-headline italic text-3xl md:text-5xl mb-2">Nasi Goreng Royale</h3><p className="text-on-background/60 text-sm md:text-base max-w-md">Indonesian style fried rice with house sambal, chicken satay, and fried egg.</p></div>
               <span className="font-label text-3xl md:text-4xl">125</span>
             </div>
-            <div className="mt-auto"><img alt="nasi goreng platter" className="arch-image w-full h-48 md:h-80 object-cover mt-6 md:mt-12 shadow-inner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGoj5snv5tyfV9nuyGrLKFHXUTnRC0TbjppOVyGYGUmerFWTW_oKGqEgutAjs7I6WQdTxmFZmtMaijFmDV5PIcX5cwK9KXJk3i0w5oc7zIXRnZIBV-yoqF4TmeXk66F9DoW2vZNmpV0S0gAEKAJCeNS3eIPANY5SN2abDnk1e2sB0pllCXc605vpQCdssHcv4TRCOoX2TJliLNWg7kQY7NGVvoV97cTeimAHo5blupaXsuyVVUtsBt25rdT5iGAYmwqIc6WnLy87o" /></div>
+            <div className="mt-auto"><Image alt="nasi goreng platter" className="arch-image w-full h-48 md:h-80 object-cover mt-6 md:mt-12 shadow-inner" src={IMAGES.eggFriedRiceWithVegetable} /></div>
           </div>
           <div className="md:col-span-4 flex flex-col gap-6 md:grid md:grid-cols-2 lg:flex lg:flex-col">
             <div className="bg-primary text-white rounded-lg p-8 md:p-10 flex-1 flex flex-col justify-center"><h4 className="font-headline italic text-2xl md:text-3xl mb-2">Pad Kra Pao</h4><p className="text-white/70 text-xs md:text-sm mb-4 md:mb-6">Thai holy basil minced pork over jasmine rice with crispy fried egg.</p><span className="font-label text-xl md:text-2xl">92</span></div>
@@ -178,7 +179,7 @@ export default function MenuTabsSection() {
               { name: "Tofu Cha Han", price: "59" },
             ].map(({ name, price, sub }) => (
               <div key={name} className="bg-surface-container-low p-6 rounded-lg flex items-center justify-between">
-                <div><h5 className="font-headline italic text-xl md:text-2xl">{name}</h5>{sub && <p className="text-on-background/60 text-[10px] mt-1">{sub}</p>}</div>
+                <div><h5 className="font-headline italic text-xl md:text-2xl">{name}</h5>{sub && <p className="text-on-background/60 text-[11px] mt-1">{sub}</p>}</div>
                 <span className="font-label text-lg md:text-xl">{price}</span>
               </div>
             ))}
@@ -187,32 +188,32 @@ export default function MenuTabsSection() {
 
         {/* Noodles */}
         <div className={`tab-content ${activeTab === "noodles" ? "block" : "hidden"} space-y-8 md:space-y-12`} id="tab-noodles">
-          <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden group">
-            <img alt="stir fried pho noodles" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWZpjnSdhn3cbWFvxT8Gqxrm5K2GWrsivRzrixQYaGmGQHfSInrJNd-Q7-lCF9QE3-ykNpYBFLnWHox8E-pm-2Hlm9GTrV85FrdC1BFpiHOjkkCb8kIW7kcrfsHLyI64EN9PsVr7eE7V602zitf7mzY7wCxmoS4eAzhwrXUu1yo2byRt_2fx7uR9-qq2_CSiD-cmG0ekdt47lekQXWnMgYE7laBrU3-Lbsurga-V9YLpOXFyL-CUQgFFvQDXGtxSqHQgjg0sMToa8" />
-            <div className="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/40 to-transparent flex flex-col justify-end p-6 md:p-16">
-              <p className="font-label uppercase tracking-[0.3em] text-secondary-fixed text-[10px] md:text-xs mb-2 md:mb-4">Chef's Signature</p>
+          <div className="relative h-[280px] sm:h-[350px] md:h-[500px] rounded-lg overflow-hidden group">
+            <Image alt="stir fried pho noodles" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src={IMAGES.stirFriedPho} />
+            <div className="absolute inset-0 bg-linear-to-t from-on-background/90 via-on-background/40 to-transparent flex flex-col justify-end p-6 md:p-16">
+              <p className="font-label uppercase tracking-[0.3em] text-secondary-fixed text-[11px] md:text-xs mb-2 md:mb-4">Chef's Signature</p>
               <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 md:gap-12">
                 <div className="flex-1"><h3 className="font-headline italic text-4xl md:text-6xl text-white mb-2 md:mb-4">Stir-fried Phở</h3><p className="text-white/70 text-sm md:text-base max-w-lg">Flat rice noodles flash-fried with tender beef slices, bok choy, and a savory reduction.</p></div>
                 <div className="shrink-0 self-start md:self-auto"><span className="font-label text-2xl md:text-4xl text-white border border-white/40 bg-white/10 px-6 py-3 rounded-full">89</span></div>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Classic Beef Pho", desc: "12-hour simmered broth, fresh herbs.", price: "89", src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD_xAqMrUv5jye04VsJs-NjLfO7MD3dTJgEWOuJD8SW87g_cY7jdcowivpb-9HaYnkC-lqi3xP_JNyrCtFLKpsw8vtW9fyhOdjROgIsJgDEJPXpFYgIX_G4bv1mINT3H9sv9AvrhbnAu0UwF3qknuaHudvChrMiFzvx7w5n0HIjLmCDAznflRVf9KsL8bQ6aK2C4ktDEf3OX2Bm7o8i2Da7iDccTESM1Dtkw-qyFPh4GsJeYum1BrP7JBlMCEtTq1cr9awDYs8xYmg", variants: null },
-              { name: "Wok fried soba", desc: null, price: null, src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBxZcBumos76s4mTi8BOcZ5MSvO9bDaKRTe4jgO7F0Yl0kfp9YW16Ks_Pncd-ZP7oZ8jeoPPPijy4zeSCvWkkG9pNSo-_Fuwh7dQH-Oktn8yAnXODg1zz6WrMtly54gf4yqqr5n4Sj2nofTbfPaNzcekL7Lh5DoqZizaTiJX14OZ3tCazyf4q4ihDE_gnIbwTCCQefSUyCo4jSGUL4SPc7el8kT7YzaWAXs2IuyprXTywf2uW2nblSbCxtLuOp018W7KY12r4Ne3SU", variants: [["Prawn","129"],["Beef","119"],["Tofu","95"]] },
-              { name: "Wok fried udon", desc: null, price: null, src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD9lD-aplUtBFvlyU8_qfayTkNFjHnu83W7EE5HxqtmJ6lyWeRY9QaZQaG3UvJv_SIigxDCRSY-XRXRmYt-ox5Z_ea2wEUr9GClB0bXaAoBieYEEX7R2eihm9130473u3QNqcB-1z4pLKkc4QJYxb3FyD4Lhosa0U16biTv5EpiAK9_eZiSLOuirA30nqdodRUJMAa8RPP9iEmPhmjjtK_LRBKafgeco1VJKUoQOXxDIy83diHuENDt8sH5BK_jX9DHsFTFwLBPj9s", variants: [["Prawn","129"],["Beef","119"],["Tofu","95"]] },
-              { name: "Wok fried egg noodles", desc: null, price: null, src: "https://lh3.googleusercontent.com/aida-public/AB6AXuA36E72xkk_DwUkfhr4k_tlgZ9M1wZV0M4ulZcBSNEVPW0TApSfEHwctUXTQlFVAklBP_8m4KbFQBuuGK6oBRg-1ibV1a_ojg9y1niT--dPVq8GMExvxFec-pV0cJFCpBIv1kW2kfXZ7rFtoQcbEdPKrFp_B_fm9r-s1OPGHsRArF7xhPrZVWGCtBZWrQ_-826Qvy08YwSdE5ETZWR-ron1P7HuNvRSObcyxFa8iUjtUHC4NPOcjY486dlq2BLmxrtUMvu-2IU5fyA", variants: [["Prawn","109"],["Beef","89"],["Tofu","59"]] },
+              { name: "Classic Beef Pho", desc: "12-hour simmered broth, fresh herbs.", price: "89", src: IMAGES.noodle1, variants: null },
+              { name: "Wok fried soba", desc: null, price: null, src: IMAGES.sobaNoodlesWithTofu, variants: [["Prawn", "129"], ["Beef", "119"], ["Tofu", "95"]] },
+              { name: "Wok fried udon", desc: null, price: null, src: IMAGES.udonNoodlesWithTofu, variants: [["Prawn", "129"], ["Beef", "119"], ["Tofu", "95"]] },
+              { name: "Wok fried egg noodles", desc: null, price: null, src: IMAGES.noodle2, variants: [["Prawn", "109"], ["Beef", "89"], ["Tofu", "59"]] },
             ].map(({ name, desc, price, src, variants }) => (
               <div key={name} className="bg-surface-container-low p-5 rounded-lg group flex flex-col">
-                <div className="aspect-square overflow-hidden rounded-lg mb-6"><img alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" src={src} /></div>
+                <div className="aspect-square overflow-hidden rounded-lg mb-6"><Image alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" src={src} /></div>
                 <div className="flex justify-between items-start gap-2 mb-2">
                   <h5 className="font-headline italic text-xl md:text-2xl">{name}</h5>
                   {price && <span className="font-label text-on-background font-bold pt-1">{price}</span>}
                 </div>
                 {desc && <p className="text-on-background/60 text-xs md:text-sm mt-auto">{desc}</p>}
                 {variants && (
-                  <div className="space-y-1 text-[10px] md:text-xs uppercase tracking-wider font-label text-on-background/60">
+                  <div className="space-y-1 text-[11px] md:text-xs uppercase tracking-wider font-label text-on-background/60">
                     {variants.map(([label, val], i) => (
                       <div key={label} className={`flex justify-between ${i < variants.length - 1 ? "border-b border-outline-variant/10 pb-1" : ""}`}><span>{label}</span><span>{val}</span></div>
                     ))}
@@ -234,8 +235,8 @@ export default function MenuTabsSection() {
               ].map(({ name, sub, price }) => (
                 <div key={name} className="flex items-center justify-between group">
                   <div className="flex items-center gap-4 md:gap-6">
-                    <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0 shadow-lg border border-outline-variant/30"><img alt={name} className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxZcBumos76s4mTi8BOcZ5MSvO9bDaKRTe4jgO7F0Yl0kfp9YW16Ks_Pncd-ZP7oZ8jeoPPPijy4zeSCvWkkG9pNSo-_Fuwh7dQH-Oktn8yAnXODg1zz6WrMtly54gf4yqqr5n4Sj2nofTbfPaNzcekL7Lh5DoqZizaTiJX14OZ3tCazyf4q4ihDE_gnIbwTCCQefSUyCo4jSGUL4SPc7el8kT7YzaWAXs2IuyprXTywf2uW2nblSbCxtLuOp018W7KY12r4Ne3SU" /></div>
-                    <div className="flex flex-col"><h5 className="font-label text-lg md:text-xl font-medium">{name}</h5><p className="text-[10px] text-on-background/50 font-label tracking-wide uppercase">{sub}</p></div>
+                    <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 shadow-lg border border-outline-variant/30"><Image alt={name} className="w-full h-full object-cover" src={IMAGES.wokFriedSpinachWithGarlic} /></div>
+                    <div className="flex flex-col"><h5 className="font-label text-lg md:text-xl font-medium">{name}</h5><p className="text-[11px] text-on-background/50 font-label tracking-wide uppercase">{sub}</p></div>
                   </div>
                   <span className="font-label text-base md:text-lg text-on-background/70">{price}</span>
                 </div>
@@ -243,7 +244,7 @@ export default function MenuTabsSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 {[{ name: "Bok Choy", price: "49" }, { name: "French Fries", price: "45" }].map(({ name, price }) => (
                   <div key={name} className="bg-surface-container-low px-5 md:px-6 py-3 md:py-4 rounded-full flex justify-between items-center border border-outline-variant/10">
-                    <span className="font-label text-[10px] md:text-xs uppercase tracking-wider font-bold">{name}</span>
+                    <span className="font-label text-[11px] md:text-xs uppercase tracking-wider font-bold">{name}</span>
                     <span className="font-label text-sm">{price}</span>
                   </div>
                 ))}
@@ -259,7 +260,7 @@ export default function MenuTabsSection() {
                 { name: "Saigon Coffee", sub: "Black or with Sweetened Milk", price: "25" },
               ].map(({ name, sub, price }) => (
                 <div key={name} className="flex justify-between items-end border-b border-outline-variant/10 pb-4 group">
-                  <div className="flex flex-col pr-4"><h5 className="font-label text-base md:text-lg font-medium">{name}</h5><p className="text-[9px] md:text-[10px] text-on-background/40 uppercase tracking-widest mt-1">{sub}</p></div>
+                  <div className="flex flex-col pr-4"><h5 className="font-label text-base md:text-lg font-medium">{name}</h5><p className="text-[9px] md:text-[11px] text-on-background/40 uppercase tracking-widest mt-1">{sub}</p></div>
                   <span className="font-label text-base md:text-lg">{price}</span>
                 </div>
               ))}

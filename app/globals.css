@@ -274,3 +274,54 @@ body {
 .flip-card-h .flip-card-back {
     transform: rotateY(180deg);
 }
+
+/* Disable flip card hover on touch devices */
+@media (hover: none) {
+ .flip-card-container:hover .flip-card-v,
+ .flip-card-container:hover .flip-card-h {
+ transform: none;
+ }
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+ -ms-overflow-style: none;
+ scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+ display: none;
+}
+
+/* Custom z-index scale (above Tailwind's default 0-50) */
+.z-100 { z-index: 100; }
+.z-110 { z-index: 110; }
+.z-120 { z-index: 120; }
+
+/* Gallery arch geometry */
+.arch-geometry {
+ border-radius: 50% 50% 0 0;
+}
+
+/* Pulse animation for video play button */
+.pulse-animation {
+ animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse-ring {
+ 0%, 100% { opacity: 0.6; transform: scale(1); }
+ 50% { opacity: 0.2; transform: scale(1.15); }
+}
+
+/* Arch image class (used in menu tabs) */
+.arch-image {
+ border-radius: 50% 50% 0 0;
+}
+
+/* Respect user motion preference — disable all animations */
+@media (prefers-reduced-motion: reduce) {
+ *, *::before, *::after {
+   animation-duration: 0.01ms !important;
+   animation-iteration-count: 1 !important;
+   transition-duration: 0.01ms !important;
+   scroll-behavior: auto !important;
+ }
+}

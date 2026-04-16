@@ -6,9 +6,9 @@ import MenuTabsSection from "@/components/sections/menu/MenuTabsSection";
 
 export default function MenuPage() {
   return (
-    <>
+    <main className="w-full overflow-hidden">
       <MenuHeroSection />
       <MenuTabsSection />
-    </>
+    </main>
   );
 }

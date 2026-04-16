@@ -25,7 +25,7 @@ export default function DishCard({
   return (
     <div className={`group ${className}`}>
       <div className={`relative overflow-hidden arched-image bg-surface-container-low mb-6 ${imageClassName}`}>
-        <img 
+        <Image 
           alt={title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
           src={imageUrl} 
