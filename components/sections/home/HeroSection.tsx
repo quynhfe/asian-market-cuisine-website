@@ -1,7 +1,15 @@
+import Link from "next/link";
 import { IMAGES } from "@/lib/images";
 import Image from "next/image";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/getDictionary";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  locale: Locale;
+  dictionary: Dictionary;
+}
+
+export default function HeroSection({ locale, dictionary }: HeroSectionProps) {
   return (
     <main className="h-screen flex flex-col pt-16 md:pt-20 overflow-hidden relative">
       {/* HERO */}
@@ -15,9 +23,6 @@ export default function HeroSection() {
         <div className="h-full max-w-screen-2xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-[48%_1fr]">
           {/* Mobile Background Slider */}
           <div className="lg:hidden absolute inset-0 z-0">
-            <Image priority src={IMAGES.hero1} alt="Hero 1" className="hidden" />
-            <Image priority src={IMAGES.hero2} alt="Hero 2" className="hidden" />
-            <Image priority src={IMAGES.hero3} alt="Hero 3" className="hidden" />
             <div className="mobile-slider-item bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.hero1.src})` }}></div>
             <div className="mobile-slider-item bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.hero2.src})` }}></div>
             <div className="mobile-slider-item bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.hero3.src})` }}></div>
@@ -28,7 +33,7 @@ export default function HeroSection() {
           <div className="flex flex-col justify-center px-8 md:px-12 lg:pr-8 relative z-30 text-center lg:text-left h-full">
             <div className="max-w-2xl lg:max-w-[85%] mx-auto lg:mx-0 w-full">
               <div className="mask-reveal mb-2 lg:mb-6">
-                <span className="mask-reveal-inner font-label uppercase tracking-[0.4em] text-[8px] md:text-[10px] text-white lg:text-primary/60">Since 2024</span>
+                <span className="mask-reveal-inner font-label uppercase tracking-[0.4em] text-[8px] md:text-[10px] text-white lg:text-primary/60">{dictionary.home.hero.since}</span>
               </div>
               <h1 className="font-headline italic text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] text-white lg:text-primary leading-[0.95] mb-8 lg:mb-12">
                 <span className="mask-reveal block"><span className="mask-reveal-inner reveal-delay-1 tracking-wide">Asian</span></span>
@@ -37,14 +42,14 @@ export default function HeroSection() {
               </h1>
               <div className="mask-reveal mb-10 lg:mb-14">
                 <p className="mask-reveal-inner reveal-delay-3 font-body text-white/90 lg:text-on-surface-variant text-sm md:text-base lg:text-lg leading-relaxed max-w-sm mx-auto lg:mx-0 lg:max-w-xl">
-                  Dinner is a Safe Choice. A contemporary dialogue between tradition and the street markets of Southeast Asia.
+                  {dictionary.home.hero.description}
                 </p>
               </div>
               <div className=" flex flex-col items-center lg:items-start gap-8">
                 <div className="mask-reveal-inner reveal-delay-3">
-                  <button className="bg-white lg:bg-primary text-primary lg:text-white px-8 sm:px-12 py-4 rounded-full font-label uppercase tracking-widest text-[10px] sm:text-xs hover:scale-105 transition-all shadow-xl cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:focus-visible:outline-primary">
-                    View Menu
-                  </button>
+                  <Link href={localizeHref("/menu", locale)} className="bg-white lg:bg-primary text-primary lg:text-white px-8 sm:px-12 py-4 rounded-full font-label uppercase tracking-widest text-[10px] sm:text-xs hover:scale-105 transition-all shadow-xl cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:focus-visible:outline-primary">
+                    {dictionary.home.hero.cta}
+                  </Link>
                 </div>
                 <div className="flex lg:hidden gap-4">
                   {["dot-1", "dot-2", "dot-3"].map((cls) => (
@@ -60,14 +65,14 @@ export default function HeroSection() {
             <div className="scroll-mask w-full h-full p-4 lg:p-8">
               <div className="grid grid-cols-2 gap-4 lg:gap-8 h-full">
                 <div className="flex flex-col gap-4 lg:gap-8 animate-scroll-up">
-                  <Image priority alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery1} />
-                  <Image priority alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery2} />
-                  <Image priority alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery3} />
+                  <Image preload alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery1} />
+                  <Image alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery2} />
+                  <Image alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery3} />
                 </div>
                 <div className="flex flex-col gap-4 lg:gap-8 animate-scroll-down">
-                  <Image priority alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery4} />
-                  <Image priority alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery5} />
-                  <Image priority alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery6} />
+                  <Image alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery4} />
+                  <Image alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery5} />
+                  <Image alt="Food Gallery" className="w-full aspect-3/4 object-cover rounded-2xl lg:rounded-3xl" src={IMAGES.gallery6} />
                 </div>
               </div>
             </div>
@@ -83,10 +88,10 @@ export default function HeroSection() {
               <div key={i} className="marquee-content items-center">
                 <div className="flex items-center gap-4 px-8 whitespace-nowrap">
                   <span className="material-symbols-outlined text-on-secondary-container animate-bounce">emoji_events</span>
-                  <span className="font-label uppercase tracking-[0.15em] text-[10px] md:text-xs text-on-secondary-container font-bold">Top User-Rated Restaurant in Da Nang</span>
+                  <span className="font-label uppercase tracking-[0.15em] text-[10px] md:text-xs text-on-secondary-container font-bold">{dictionary.home.hero.awardTitle}</span>
                 </div>
                 <div className="flex items-center gap-2 px-8">
-                  <span className="font-label uppercase tracking-widest text-[10px] md:text-xs text-on-secondary-container">Star rating</span>
+                  <span className="font-label uppercase tracking-widest text-[10px] md:text-xs text-on-secondary-container">{dictionary.home.hero.starRating}</span>
                   <div className="flex text-secondary">
                     {Array.from({ length: 5 }).map((_, j) => (
                       <span key={j} className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>star</span>
@@ -95,7 +100,7 @@ export default function HeroSection() {
                 </div>
                 <div className="flex items-center gap-4 px-8">
                   <span className="material-symbols-outlined text-on-secondary-container text-lg">verified</span>
-                  <span className="font-label uppercase tracking-widest text-[10px] md:text-xs text-on-secondary-container opacity-80">Certified Quality</span>
+                  <span className="font-label uppercase tracking-widest text-[10px] md:text-xs text-on-secondary-container opacity-80">{dictionary.home.hero.certified}</span>
                 </div>
               </div>
             ))}

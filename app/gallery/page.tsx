@@ -1,16 +1,6 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Gallery Page — assembles all sections
-// ─────────────────────────────────────────────────────────────────────────────
-import { GalleryHeroSection, GalleryCTASection, GalleryVideoSection } from "@/components/sections/gallery/GalleryStaticSections";
-import GalleryGridSection from "@/components/sections/gallery/GalleryGridSection";
+import { redirect } from "next/navigation";
+import { DEFAULT_LOCALE } from "@/lib/i18n/config";
 
-export default function GalleryPage() {
-  return (
-    <main className="w-full overflow-hidden">
-      <GalleryHeroSection />
-      <GalleryGridSection />
-      <GalleryCTASection />
-      <GalleryVideoSection />
-    </main>
-  );
+export default function LegacyGalleryPage() {
+  redirect(`/${DEFAULT_LOCALE}/gallery`);
 }

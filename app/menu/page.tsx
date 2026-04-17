@@ -1,14 +1,6 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Menu Page — assembles all sections
-// ─────────────────────────────────────────────────────────────────────────────
-import MenuHeroSection from "@/components/sections/menu/MenuHeroSection";
-import MenuTabsSection from "@/components/sections/menu/MenuTabsSection";
+import { redirect } from "next/navigation";
+import { DEFAULT_LOCALE } from "@/lib/i18n/config";
 
-export default function MenuPage() {
-  return (
-    <main className="w-full overflow-hidden">
-      <MenuHeroSection />
-      <MenuTabsSection />
-    </main>
-  );
+export default function LegacyMenuPage() {
+  redirect(`/${DEFAULT_LOCALE}/menu`);
 }
